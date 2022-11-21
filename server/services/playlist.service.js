@@ -32,7 +32,8 @@ class PlaylistService {
    * @returns Retourne la playlist en fonction de son id
    */
   async getPlaylistById (id) {
-    return { id: -1 };
+    const query = { id };
+    return await this.collection.findOne(query);
   }
 
   /**
