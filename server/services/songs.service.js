@@ -22,7 +22,7 @@ class SongService {
    * @returns {Promise<Array>}
    */
   async getAllSongs () {
-    return [];
+    return await this.collection.find({}).toArray();
   }
 
   /**
