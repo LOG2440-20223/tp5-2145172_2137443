@@ -45,6 +45,9 @@ class PlaylistService {
   async addPlaylist (playlist) {
     playlist.id = randomUUID();
     await this.savePlaylistThumbnail(playlist);
+
+    await this.collection.insertOne(playlist);
+
     return playlist;
   }
 
