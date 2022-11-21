@@ -66,7 +66,17 @@ class SongService {
    * @returns toutes les chansons qui ont le mot clé cherché dans leur contenu (name, artist, genre)
    */
   async search (substring, exact) {
-    const filter = { name: { $regex: `${substring}`, $options: "i" } };
+    const nameFilter = {
+      name: { $regex: `${substring}`, $options: exact ? "" : "i" },
+    };
+    const descriptionFilter = {
+      description: { $regex: `${substring}`, $options: exact ? "" : "i" },
+    };
+    const genreFilter = {
+      genre: { $regex: `${substring}`, $options: exact ? "" : "i" },
+    };
+
+    const filter = { $or: [nameFilter, descriptionFilter, genreFilter] };
     const songs = await this.collection.find(filter).toArray();
     return songs;
   }
