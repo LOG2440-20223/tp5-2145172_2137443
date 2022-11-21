@@ -59,6 +59,11 @@ class PlaylistService {
   async updatePlaylist (playlist) {
     delete playlist._id; // _id est immutable
     await this.savePlaylistThumbnail(playlist);
+
+    const filter = { id: playlist.id };
+    const update = { $set: playlist };
+
+    await this.collection.updateOne(filter, update);
   }
 
   /**
