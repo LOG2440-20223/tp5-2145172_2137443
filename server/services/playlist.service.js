@@ -131,16 +131,13 @@ class PlaylistService {
    * @returns toutes les playlists qui ont le mot clé cherché dans leur contenu (name, description)
    */
   async search (substring, exact) {
-    // FIXME: Reduce code duplication
+    const generateFilter = (fieldName) => ({
+      [fieldName]: { $regex: `${substring}`, $options: exact ? "" : "i" },
+    });
 
-    const nameFilter = {
-      name: { $regex: `${substring}`, $options: exact ? "" : "i" },
+    const filter = {
+      $or: [generateFilter("name"), generateFilter("description")],
     };
-    const descriptionFilter = {
-      description: { $regex: `${substring}`, $options: exact ? "" : "i" },
-    };
-
-    const filter = { $or: [nameFilter, descriptionFilter] };
     const playlists = await this.collection.find(filter).toArray();
     return playlists;
   }

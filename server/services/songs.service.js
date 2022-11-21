@@ -66,19 +66,17 @@ class SongService {
    * @returns toutes les chansons qui ont le mot clé cherché dans leur contenu (name, artist, genre)
    */
   async search (substring, exact) {
-    // FIXME: Reduce code duplication
+    const generateFilter = (fieldName) => ({
+      [fieldName]: { $regex: `${substring}`, $options: exact ? "" : "i" },
+    });
 
-    const nameFilter = {
-      name: { $regex: `${substring}`, $options: exact ? "" : "i" },
+    const filter = {
+      $or: [
+        generateFilter("name"),
+        generateFilter("description"),
+        generateFilter("genre"),
+      ],
     };
-    const descriptionFilter = {
-      description: { $regex: `${substring}`, $options: exact ? "" : "i" },
-    };
-    const genreFilter = {
-      genre: { $regex: `${substring}`, $options: exact ? "" : "i" },
-    };
-
-    const filter = { $or: [nameFilter, descriptionFilter, genreFilter] };
     const songs = await this.collection.find(filter).toArray();
     return songs;
   }
