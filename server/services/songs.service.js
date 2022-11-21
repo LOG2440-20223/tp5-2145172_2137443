@@ -45,7 +45,14 @@ class SongService {
    * @returns {boolean} le nouveau état aimé de la chanson
    */
   async updateSongLike (id) {
-    return false;
+    // Based on https://stackoverflow.com/a/66932994
+    const filter = { id };
+    const update = [{ $set: { liked: { $not: "$liked" } } }];
+    const options = { returnNewDocument: true };
+
+    const updatedResult = await this.collection.findOneAndUpdate(filter, update, options);
+
+    return updatedResult.liked;
   }
 
   /**
