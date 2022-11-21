@@ -22,7 +22,7 @@ class PlaylistService {
    * @returns {Promise<Array>} la liste de toutes les playlists
    */
   async getAllPlaylists () {
-    return [];
+    return await this.collection.find({}).toArray();
   }
 
   /**
