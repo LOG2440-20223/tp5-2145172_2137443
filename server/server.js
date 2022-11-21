@@ -6,6 +6,8 @@ const searchBarRouter = require("./routes/search_bar");
 const DB_CONSTS = require("./utils/env");
 const { dbService } = require('./services/database.service');
 const cors = require("cors");
+const { PlaylistService } = require("./services/playlist.service");
+const { SongService } = require("./services/songs.service");
 
 const app = express();
 const PORT = 5020;
@@ -29,8 +31,13 @@ app.use("/api/playlists", playlistsRouter.router);
 app.use("/api/search", searchBarRouter.router);
 
 const server = app.listen(PORT, () => {
-  dbService.connectToServer(DB_CONSTS.DB_URL).then(() => {
+  dbService.connectToServer(DB_CONSTS.DB_URL).then(async () => {
     // TODO : populer la BD avec les valeurs par défaut
+    const playlistService = new PlaylistService();
+    const songService = new SongService();
+
+    await playlistService.populateDb();
+    await songService.populateDb();
     // eslint-disable-next-line no-console
     console.log(`Listening on port ${PORT}.`);
   });
