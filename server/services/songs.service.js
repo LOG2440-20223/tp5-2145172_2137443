@@ -33,7 +33,8 @@ class SongService {
    * @returns chanson correspondant à l'id
    */
   async getSongById (id) {
-    return { id: -1 };
+    const query = { id };
+    return await this.collection.findOne(query);
   }
 
   /**
