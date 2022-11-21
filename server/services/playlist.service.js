@@ -131,6 +131,8 @@ class PlaylistService {
    * @returns toutes les playlists qui ont le mot clé cherché dans leur contenu (name, description)
    */
   async search (substring, exact) {
+    // FIXME: Reduce code duplication
+
     const nameFilter = {
       name: { $regex: `${substring}`, $options: exact ? "" : "i" },
     };

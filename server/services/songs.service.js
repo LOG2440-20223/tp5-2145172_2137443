@@ -66,6 +66,8 @@ class SongService {
    * @returns toutes les chansons qui ont le mot clé cherché dans leur contenu (name, artist, genre)
    */
   async search (substring, exact) {
+    // FIXME: Reduce code duplication
+
     const nameFilter = {
       name: { $regex: `${substring}`, $options: exact ? "" : "i" },
     };
