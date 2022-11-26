@@ -8,7 +8,9 @@ export default function Song({ song, index }) {
   const [liked, setLiked] = useState(song.liked);
   // TODO : envoyer une demande de modification au serveur et mettre l'interface à jour.
   useContext(PlaylistContext).api;
-  const toggleLike = () => {};
+  const toggleLike = () => {
+    console.log(`Toggled liked for ${song.name}`);
+  };
 
   // TODO : envoyer une action PLAY avec le bon index au reducer.
   const playSong = () => {};
@@ -29,7 +31,9 @@ export default function Song({ song, index }) {
       {/*TODO : modifier le statut aimé seulement si index n'existe pas */}
       <button
         className={`${liked ? "fa" : "fa-regular"} fa-2x fa-heart`}
-        onClick={toggleLike}
+        onClick={() => {
+          if (!index) toggleLike();
+        }}
       ></button>
     </section>
   );
