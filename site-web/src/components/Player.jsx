@@ -26,7 +26,9 @@ export default function Player() {
   };
 
   // TODO : ajouter une action de déplacement dans la barre de progrès
-  const seek = (newTime) => {};
+  const seek = (newTime) => {
+    dispatch({ type: ACTIONS.SEEK, payload: { time: newTime } });
+  };
 
   // TODO : ajouter une action d'avancement/recul dans la chanson
   const scrubTime = (delta) => {};
