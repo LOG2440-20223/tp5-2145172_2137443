@@ -15,7 +15,7 @@ export default function Song({ song, index }) {
 
   // TODO : envoyer une action PLAY avec le bon index au reducer.
   const playSong = () => {
-    console.log(`Playing ${song.name}`);
+    dispatch({ type: ACTIONS.PLAY, payload: { index: index - 1} });
   };
 
   return (
