@@ -7,9 +7,10 @@ export default function Song({ song, index }) {
   const { dispatch } = useContext(PlaylistContext);
   const [liked, setLiked] = useState(song.liked);
   // TODO : envoyer une demande de modification au serveur et mettre l'interface à jour.
-  useContext(PlaylistContext).api;
+  const api = useContext(PlaylistContext).api;
   const toggleLike = () => {
-    console.log(`Toggled liked for ${song.name}`);
+    api.updateSong(song.id);
+    setLiked(!liked);
   };
 
   // TODO : envoyer une action PLAY avec le bon index au reducer.
