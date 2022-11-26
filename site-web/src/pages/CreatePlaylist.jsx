@@ -102,7 +102,10 @@ export default function CreatePlaylist() {
   };
 
   // TODO : Gérer le changement de description
-  const handleDescriptionChange = (event) => {};
+  const handleDescriptionChange = (event) => {
+    const newDescription = event.target.value;
+    setData({ ...data, description: newDescription });
+  };
 
   const handleFileChange = async (event) => {
     setPreview(URL.createObjectURL(event.target.files[0]));
