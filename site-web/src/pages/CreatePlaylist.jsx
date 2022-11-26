@@ -137,7 +137,7 @@ export default function CreatePlaylist() {
                 type="text"
                 id="name"
                 placeholder="Playlist#1"
-                value={"TODO"}
+                value={data.name}
                 required
                 onChange={handleNameChange}
               />
@@ -149,7 +149,7 @@ export default function CreatePlaylist() {
                 type="text"
                 id="description"
                 placeholder="Nouvelle playlist"
-                value={"TODO"}
+                value={data.description}
                 required
                 onChange={handleDescriptionChange}
               />
@@ -165,7 +165,9 @@ export default function CreatePlaylist() {
           <legend>Chansons</legend>
           {/*TODO : construire les choix de chansons dans des éléments <option> */}
           <datalist id="song-dataList">
-            <option value={"Whip"} />
+            {songs.map((song) => (
+              <option key={song.id} value={song.name} />
+            ))}
           </datalist>
           <button id="add-song-btn" className="fa fa-plus" onClick={addItemSelect}></button>
           <div id="song-list">
