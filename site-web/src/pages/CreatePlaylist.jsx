@@ -40,6 +40,13 @@ export default function CreatePlaylist() {
     event.preventDefault();
     if (!data.name || !data.description || !data.thumbnail) return;
     // TODO : envoyer la bonne requête pour ajouter ou modifier une playlist en fonction de l'attribut params.id
+    if (params.id) {
+      setData({ ...data, id: params.id });
+      await api.updatePlaylist(data);
+    } else {
+      await api.addNewPlaylist(data);
+    }
+
     navigate("/index");
   };
 
