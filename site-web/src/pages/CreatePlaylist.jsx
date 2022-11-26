@@ -96,7 +96,10 @@ export default function CreatePlaylist() {
   };
 
   // TODO : Gérer le changement de nom
-  const handleNameChange = (event) => {};
+  const handleNameChange = (event) => {
+    const newName = event.target.value;
+    setData({ ...data, name: newName });
+  };
 
   // TODO : Gérer le changement de description
   const handleDescriptionChange = (event) => {};
