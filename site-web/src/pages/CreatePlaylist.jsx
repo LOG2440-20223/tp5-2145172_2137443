@@ -189,7 +189,7 @@ export default function CreatePlaylist() {
           </div>
         </fieldset>
         {/*TODO : afficher "Modifier la playlist" ou "Ajouter la playlist" en fonction de l'état du formulaire */}
-        <input type="submit" value={"Ajouter la playlist"} onClick={handleSubmit} id="playlist-submit" />
+        <input type="submit" value={params.id ? "Modifier la playlist" : "Ajouter la playlist"} onClick={handleSubmit} id="playlist-submit" />
       </form>
       {params.id ? (
         <button
