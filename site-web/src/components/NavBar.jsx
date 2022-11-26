@@ -8,13 +8,17 @@ export default function NavBar() {
         <ul className="flex-column">
           <li>
             {/*TODO : ajouter le lien de navigation vers la page /index */}
-            <i className="fa fa-music"></i>
-            <span>Ma Bibliothèque</span>
+            <NavLink to="/index" className={(navData) => (navData.isActive ? "active-page" : "none")}>
+              <i className="fa fa-music"></i>
+              <span>Ma Bibliothèque</span>
+            </NavLink>
           </li>
           <li>
             {/*TODO : ajouter le lien de navigation vers la page /create_playlist */}
-            <i className="fa fa-plus"></i>
-            <span>Créer Playlist</span>
+            <NavLink to="/create_playlist" className={(navData) => (navData.isActive ? "active-page" : "none")}>
+              <i className="fa fa-plus"></i>
+              <span>Créer Playlist</span>
+            </NavLink>
           </li>
           <li>
             <NavLink to="/about" className={(navData) => (navData.isActive ? "active-page" : "none")}>
