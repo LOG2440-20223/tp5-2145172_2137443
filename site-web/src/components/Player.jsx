@@ -36,7 +36,9 @@ export default function Player() {
   };
 
   // TODO : ajouter une action de fermer/ouvrir le son
-  const muteToggle = () => {};
+  const muteToggle = () => {
+    dispatch({ type: ACTIONS.MUTE });
+  };
 
   // TODO : ajouter une action d'activer ou désactiver le mode "shuffle"
   const shuffleToggle = () => {};
