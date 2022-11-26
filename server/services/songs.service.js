@@ -73,7 +73,7 @@ class SongService {
     const filter = {
       $or: [
         generateFilter("name"),
-        generateFilter("description"),
+        generateFilter("artist"),
         generateFilter("genre"),
       ],
     };
