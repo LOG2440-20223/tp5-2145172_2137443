@@ -13,13 +13,16 @@ export default function Song({ song, index }) {
   };
 
   // TODO : envoyer une action PLAY avec le bon index au reducer.
-  const playSong = () => {};
+  const playSong = () => {
+    console.log(`Playing ${song.name}`);
+  };
+
   return (
     <section
       className="song-item flex-row"
       onClick={() => {
         {/*TODO : joueur une chanson seulement si index existe */}
-        playSong();
+        if (index) playSong();
       }}
     >
       {index ? <span>{index}</span> : <></>}
