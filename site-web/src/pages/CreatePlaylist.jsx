@@ -122,6 +122,7 @@ export default function CreatePlaylist() {
 
   // TODO : Envoyer une requête de supression au serveur et naviguer vers la page principale
   const deletePlaylist = async (id) => {
+    await api.deletePlaylist(id);
     navigate("/index");
   };
 
