@@ -31,8 +31,9 @@ export default function Index() {
   const handleSearch = async (event, query, exactMatch) => {
     event.preventDefault();
     // TODO : implémenter la recherche et la mise à jour de l'interface
-    console.log(`Query: ${query}`);
-    console.log(`Exact match: ${exactMatch}`);
+    const searchResults = await api.search(query, exactMatch);
+    setPlaylists(searchResults.playlists);
+    setSongs(searchResults.songs);
   };
 
   return (
