@@ -22,9 +22,9 @@ export default function Song({ song, index }) {
     >
       {index ? <span>{index}</span> : <></>}
       {/*TODO : ajouter les bonnes informations de la chanson */}
-      <p>Whip</p>
-      <p>Electronic</p>
-      <p>prazkhanal</p>
+      <p>{song.name}</p>
+      <p>{song.genre}</p>
+      <p>{song.artist}</p>
 
       {/*TODO : modifier le statut aimé seulement si index n'existe pas */}
       <button
