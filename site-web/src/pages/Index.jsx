@@ -14,6 +14,10 @@ export default function Index() {
       .then((playlists) => setPlaylists(playlists))
       .catch(() => setPlaylists([]));
     // TODO : récupérer les chansons du serveur
+    api
+      .fetchAllSongs()
+      .then((songs) => setSongs(songs))
+      .catch(() => setSongs([]));
   }, []);
 
   /**
@@ -44,6 +48,9 @@ export default function Index() {
         <div id="songs-list">
           <h1>Mes Chansons</h1>
           {/*TODO : afficher les chansons dans la page*/}
+          {songs.map((song) => (
+            <Song key={song.id} song={song} />
+          ))}
         </div>
       </main>
     </>
