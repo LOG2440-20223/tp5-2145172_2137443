@@ -86,7 +86,7 @@ export default function Player() {
       <div id="controls" className="flex-column">
         <section id="buttons-container" className="flex-row">
           {/*TODO : géré l'événement 'click' */}
-          <button className="control-btn fa fa-2x fa-arrow-left" id="previous" onClick={() => {}}></button>
+          <button className="control-btn fa fa-2x fa-arrow-left" id="previous" onClick={() => {playPreviousSong()}}></button>
           <button
             className={`control-btn fa fa-2x ${state.audio.paused ? "fa-play" : "fa-pause"}`}
             id="play"
@@ -95,7 +95,7 @@ export default function Player() {
             }}
           ></button>
           {/*TODO : géré l'événement 'click' */}
-          <button className="control-btn fa fa-2x fa-arrow-right" id="next" onClick={() => {}}></button>
+          <button className="control-btn fa fa-2x fa-arrow-right" id="next" onClick={() => {playNextSong()}}></button>
           {/*TODO : géré l'événement 'click' */}
           <button
             className={`${state.shuffle ? "control-btn-toggled" : ""} control-btn fa fa-2x fa-shuffle`}
@@ -108,7 +108,7 @@ export default function Player() {
           <button
             className={`control-btn fa fa-2x ${state.mute ? "fa-volume-mute" : "fa-volume-high"}`}
             id="mute"
-            onClick={() => {}}
+            onClick={() => {muteToggle()}}
           ></button>
         </section>
         <section id="timeline-container" className="flex-row">
