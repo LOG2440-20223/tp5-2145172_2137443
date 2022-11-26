@@ -16,10 +16,14 @@ export default function Player() {
   };
 
   // TODO : ajouter une action de jouer la prochaine chanson
-  const playNextSong = () => {};
+  const playNextSong = () => {
+    dispatch({ type: ACTIONS.NEXT });
+  };
 
   // TODO : ajouter une action de jouer la chanson précédante
-  const playPreviousSong = () => {};
+  const playPreviousSong = () => {
+    dispatch({ type: ACTIONS.PREVIOUS });
+  };
 
   // TODO : ajouter une action de déplacement dans la barre de progrès
   const seek = (newTime) => {};
