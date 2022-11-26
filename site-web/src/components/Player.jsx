@@ -105,13 +105,13 @@ export default function Player() {
         </section>
         <section id="timeline-container" className="flex-row">
           {/*TODO : afficher le temps en cours de la chanson */}
-          <span id="timeline-current">{"TODO"}</span>
+          <span id="timeline-current">{currentTime}</span>
           {/*TODO : afficher le progrès de la chanson */}
           <input
             id="timeline"
             type="range"
             max="100"
-            value={0}
+            value={timeLine}
             onInput={(e) => {
               seek(e.target.value);
             }}
