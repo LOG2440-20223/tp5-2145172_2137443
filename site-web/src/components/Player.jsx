@@ -31,7 +31,9 @@ export default function Player() {
   };
 
   // TODO : ajouter une action d'avancement/recul dans la chanson
-  const scrubTime = (delta) => {};
+  const scrubTime = (delta) => {
+    dispatch({ type: ACTIONS.SCRUB, payload: { delta: delta } });
+  };
 
   // TODO : ajouter une action de fermer/ouvrir le son
   const muteToggle = () => {};
