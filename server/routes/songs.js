@@ -67,7 +67,7 @@ router.get("/player/:id", async (request, response) => {
  * @name PATCH /songs/:id/like
  */
 router.patch("/:id/like", async (request, response) => {
-  const liked = await songService.updateSongLike(request.params.id);
+  const liked = await songService.updateSongLike(parseInt(request.params.id));
   response.status(HTTP_STATUS.SUCCESS).json({ liked });
 })
 
