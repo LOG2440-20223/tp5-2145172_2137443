@@ -31,12 +31,15 @@ export default function Index() {
   const handleSearch = async (event, query, exactMatch) => {
     event.preventDefault();
     // TODO : implémenter la recherche et la mise à jour de l'interface
+    console.log(`Query: ${query}`);
+    console.log(`Exact match: ${exactMatch}`);
   };
 
   return (
     <>
       <main id="main-area" className="flex-column">
         {/*TODO : ajouter la barre de recherche*/}
+        <SearchBar handleSearch={handleSearch} />
         <div id="playlist-list">
           <h1>Mes Playlists</h1>
           <section id="playlist-container" className="playlist-container">
