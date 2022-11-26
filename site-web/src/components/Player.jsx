@@ -41,7 +41,9 @@ export default function Player() {
   };
 
   // TODO : ajouter une action d'activer ou désactiver le mode "shuffle"
-  const shuffleToggle = () => {};
+  const shuffleToggle = () => {
+    dispatch({ type: ACTIONS.SHUFFLE });
+  };
 
   const shortcutHandler = (event) => {
     if (shortcuts.has(event.key)) {
@@ -98,7 +100,9 @@ export default function Player() {
           <button
             className={`${state.shuffle ? "control-btn-toggled" : ""} control-btn fa fa-2x fa-shuffle`}
             id="shuffle"
-            onClick={() => {}}
+            onClick={() => {
+              shuffleToggle();
+            }}
           ></button>
           {/*TODO : géré l'événement 'click' */}
           <button
