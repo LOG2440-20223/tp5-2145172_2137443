@@ -48,9 +48,8 @@ class SongService {
     // Based on https://stackoverflow.com/a/66932994
     const filter = { id };
     const update = [{ $set: { liked: { $not: "$liked" } } }];
-    const options = { returnNewDocument: true };
+    const options = { returnDocument: 'after' };
 
-    // FIXME: This returns the old liked state
     const updatedResult = await this.collection.findOneAndUpdate(filter, update, options);
 
     return updatedResult.value.liked;
